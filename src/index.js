@@ -9,8 +9,8 @@ const API_KEY = process.env.API_KEY;
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;*/
 
 const API_KEY = "cPBhQglKS2ggzQxVCLYE2PUnzhhA4l9o13aCwsjeVefJjrq3HA";
-const ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJjUEJoUWdsS1MyZ2d6UXhWQ0xZRTJQVW56aGhBNGw5bzEzYUN3c2plVmVmSmpycTNIQSIsImp0aSI6IjY0OGFmMTcwN2FkZWZjMjk1M2FiYmQ2M2I4MmFkZmRhN2U3ODk2OTZkMjQ2MmIxZmUyNzg1NzAyMzRkODE3NTNkZGJlNzA1Mzg5ZjRkZDBkIiwiaWF0IjoxNzA1NzA3OTY1LCJuYmYiOjE3MDU3MDc5NjUsImV4cCI6MTcwNTcxMTU2NSwic3ViIjoiIiwic2NvcGVzIjpbXX0.HLse_VnuvobvLCKESCow26XorZfcOjlj_HYAgr4dsD51g5AQXCVrv1Aoq0TGpbXjc_3oXnXZMtG1rwqHkFZ1blTnz1p3tRJo3SIv6B0D_QEgBfQTFFC1rTJxfXgkuQAxF0Fdo2ksxJiM9i7Pur3jbEAeSUGPUmo9y4MwOMQBOYqvvyodZd1v_L2z5e2GF8PlMUi6u5JO9uf8PXd5h26mi-iEvvjTvo7QwO9gqyw6C4NTI4DpiSqCfNGivhUBcO0HXeMwB_cOPOimZ6yHVD4d2MyGRw8ty8gp6wjr_pbEOZj_2KH3QWViFT5myHFBd9lrT92tr6KgS4t9YND9uNtGQA"
-
+const ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJjUEJoUWdsS1MyZ2d6UXhWQ0xZRTJQVW56aGhBNGw5bzEzYUN3c2plVmVmSmpycTNIQSIsImp0aSI6ImM3NzJiZmYxNjg1MTAzMzczNDcwZjFlYTkyMTIyN2ZiZjk3MDYyZjY3NmVkYzVmMGU3NWQyNDU0NTk2ODE5OGViZDhhZGNhM2IxMWNjOWVkIiwiaWF0IjoxNzA1NzEzNjkzLCJuYmYiOjE3MDU3MTM2OTMsImV4cCI6MTcwNTcxNzI5Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.Ampb4J7qtdXW9MTVHvGLDA5EzfiE2L6EfMViQMjI7FQ01Qn5-XeY0ny09X7JtKSYpOKDy_gsK-lVHJnDXr5mWDWqcZNoGYT4rhvi-2Y7SimTscNSd_OhC1T_ufLNqIUS08nmdfVKKfjOpFP9kZQZAVVbFLd_kTse5ZCnCOOW-WubO0K_Su8EKPvDTzqNxOLew3heDPjxw5osVOJdG-GA-9wmapUIE1FqDgzdCjIKM_CZVcGzJ40f0xiXI-oRWWbJuqgC25qTaS0OU8ASAEIdLqnYKr99RylqOf3B0fNxsPVKcetZqtaoAnI-pTpoyYKq6MAwB0sXHGyfpN_jTqTioQ"
+//To acquire token: curl -d "grant_type=client_credentials&client_id=cPBhQglKS2ggzQxVCLYE2PUnzhhA4l9o13aCwsjeVefJjrq3HA&client_secret=DztzYAfWzys6RR0feCq7cbzw4F7g2xDiU8XAZ8GZ" https://api.petfinder.com/v2/oauth2/token
 
 const petForm = document.querySelector("#pet-form");
 petForm.addEventListener("submit", fetchAnimals);
@@ -36,43 +36,29 @@ function fetchAnimals(e) {
 }
 
 //Show listings of pets
-function showAnimals(pets) {
-  const petsImage = document.getElementById("placeholder")
-  petsImage.src = pets.placeholder
-  petsImage.alt = pets.name
-  const results = document.querySelector("#results");
-  results.innerHTML = "";
+function showAnimals(pet) {
+  const petImage = document.getElementById("placeholder")
+  const petName = document.getElementById("name")
+  const petStatus = document.getElementById("status")
+  const petBreed = document.getElementById("breedtext")
+  const petAge = document.getElementById("agetext")
+  const petSex = document.getElementById("sextext")
+  const petDescription = document.getElementById("description")
+
+  petImage.src = pet.placeholder
+  petImage.alt = pet.name
+
   //Loop through pets
 
-  pets.forEach((pet) => {
+  pet.forEach((pet) => {
     //output to page
     //console.log(pet);
-    const div = document.createElement("div");
-    div.classList.add("card", "card-body", "mb-3");
-    div.innerHTML = `
-        <div class="row" >
-        <div class="col-sm-6">
-          <h4>${pet.name}(${pet.age})</h4>
-          <p class="text-secondary">${pet.breeds.primary}</p>
-          ${pet.contact.address.address1 ? `<p>${pet.contact.address.address1}}</p>` : " " }
-          <ul class="list-group">
-          <li class="list-group-item">Phone: ${pet.contact.phone}</li>
-          ${
-            pet.contact.email
-              ? `<li class="list-group-item">Email: ${pet.contact.email}</li>`
-              : ' '
-          }
-        <li class="list-group-item">Shelter ID:${pet.id}</li>
-          </ul>
-        </div>
-        <div class="col-sm-6 text-center">
-          <img class="img-fluid rounded-circle mt-2" src="${
-            pet.photos[0].medium
-          }">
-        </div>
-        </div>
-        `;
-    results.appendChild(div);
+    petName.textContent = pet.name
+    petStatus.textContent = pet.status
+    petDescription.textContent = pet.description
+    petAge.textContent = pet.age
+    petBreed.textContent = pet.petBreed    
+    petSex.textContent = pet.sex
   });
 }
 
