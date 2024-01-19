@@ -1,12 +1,7 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
 });
-/*import dotenv from "dotenv";
-dotenv.config();
-import { isValidZip, showAlert } from "./validate";
 
-const API_KEY = process.env.API_KEY;
-const ACCESS_TOKEN = process.env.ACCESS_TOKEN;*/
 
 const API_KEY = "cPBhQglKS2ggzQxVCLYE2PUnzhhA4l9o13aCwsjeVefJjrq3HA";
 const ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJjUEJoUWdsS1MyZ2d6UXhWQ0xZRTJQVW56aGhBNGw5bzEzYUN3c2plVmVmSmpycTNIQSIsImp0aSI6ImM3NzJiZmYxNjg1MTAzMzczNDcwZjFlYTkyMTIyN2ZiZjk3MDYyZjY3NmVkYzVmMGU3NWQyNDU0NTk2ODE5OGViZDhhZGNhM2IxMWNjOWVkIiwiaWF0IjoxNzA1NzEzNjkzLCJuYmYiOjE3MDU3MTM2OTMsImV4cCI6MTcwNTcxNzI5Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.Ampb4J7qtdXW9MTVHvGLDA5EzfiE2L6EfMViQMjI7FQ01Qn5-XeY0ny09X7JtKSYpOKDy_gsK-lVHJnDXr5mWDWqcZNoGYT4rhvi-2Y7SimTscNSd_OhC1T_ufLNqIUS08nmdfVKKfjOpFP9kZQZAVVbFLd_kTse5ZCnCOOW-WubO0K_Su8EKPvDTzqNxOLew3heDPjxw5osVOJdG-GA-9wmapUIE1FqDgzdCjIKM_CZVcGzJ40f0xiXI-oRWWbJuqgC25qTaS0OU8ASAEIdLqnYKr99RylqOf3B0fNxsPVKcetZqtaoAnI-pTpoyYKq6MAwB0sXHGyfpN_jTqTioQ"
