@@ -539,14 +539,14 @@
   }
   
   .footers-footer {
-    position: fixed;
+    position: relative;
     width: 1446px;
     height: 335px;
-    top: 0;
+    top: 1200px;
     left: 0;
   }
   
-  .overlap {
+  .overlapk {
     position: relative;
     width: 1440px;
     height: 335px;
