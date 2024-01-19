@@ -37,12 +37,13 @@ function fetchAnimals(e) {
 
 //Show listings of pets
 function showAnimals(pets) {
-  const adImage = document.getElementById("placeholder")
-  adImage.src = ad.placeholder
-  adImage.alt = ad.name
+  const petsImage = document.getElementById("placeholder")
+  petsImage.src = pets.placeholder
+  petsImage.alt = pets.name
   const results = document.querySelector("#results");
   results.innerHTML = "";
   //Loop through pets
+
   pets.forEach((pet) => {
     //output to page
     //console.log(pet);
@@ -54,7 +55,6 @@ function showAnimals(pets) {
           <h4>${pet.name}(${pet.age})</h4>
           <p class="text-secondary">${pet.breeds.primary}</p>
           ${pet.contact.address.address1 ? `<p>${pet.contact.address.address1}}</p>` : " " }
-          <p>${pet.contact.address.city} ${pet.contact.address.state} ${pet.contact.address.postcode}</p>
           <ul class="list-group">
           <li class="list-group-item">Phone: ${pet.contact.phone}</li>
           ${
@@ -77,9 +77,9 @@ function showAnimals(pets) {
 }
 
 //Clicking button-52 should change Status to "Adopted"
-document.getElementById("button-52").addEventListener("click", () => buyTicket())
+document.getElementById("button-52").addEventListener("click", () => adoptStatus())
 function adoptStatus() {
-  document.getElementById(status).innerHTML = "Adopted";
+  document.getElementById("status").innerHTML = "Adopted";
 }
 
 
