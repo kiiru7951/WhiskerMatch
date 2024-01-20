@@ -533,9 +533,37 @@
   }
 
 
-  .box {
+  .box1 {
     width: 1440px;
-    height: 335px;
+    height: 200px;
+  }
+  .box {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+  }
+  
+  
+  
+.submit{
+  position: absolute;
+  left: 200px;
+  bottom: 48px;
+}
+  
+  .inputEmail {
+    position: absolute;
+    top: 180px;
+    left: 900px;
+   
+  }
+
+  
+  .inputEmail:focus, .btn1:focus {
+    outline: 0;
   }
   
   .footers-footer {
@@ -555,26 +583,26 @@
   
   .logo {
     position: absolute;
-    width: 242px;
-    height: 188px;
+    width: 100px;
+    height: 100px;
     top: 81px;
     left: 0;
   }
   
   .pet {
     position: absolute;
-    width: 128px;
-    height: 128px;
+    width: 80px;
+    height: 80px;
     top: 0;
     left: 56px;
     object-fit: cover;
   }
   
-  .text-wrapper {
+  .logoName {
     position: absolute;
-    width: 240px;
+    width: 80px;
     top: 128px;
-    left: 0;
+    left: 10px;
     font-family: "Caveat Brush-Regular", Helvetica;
     font-weight: 400;
     color: #f2f2f2;
@@ -583,99 +611,16 @@
     letter-spacing: 0.6px;
     line-height: 42.3px;
   }
-  
-  
-  
-  .div {
-    position: absolute;
-    width: 155px;
-    height: 33px;
-    top: 0;
-    left: 0;
-    font-family: "Noto Sans Hebrew New-Bold", Helvetica;
-    font-weight: 700;
-    color: #f2f2f2;
-    font-size: 26px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
+
+
+  .overlapk {
+    display: flex;
+    justify-content: space-around;
   }
+
   
   
-  
-  .p {
-    position: absolute;
-    width: 290px;
-    height: 33px;
-    top: 128px;
-    left: 931px;
-    font-family: "Noto Sans Hebrew New-Bold", Helvetica;
-    font-weight: 700;
-    color: #f2f2f2;
-    font-size: 18px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .newsletter {
-    position: absolute;
-    width: 369px;
-    height: 40px;
-    top: 177px;
-    left: 907px;
-  }
-  
-  .overlap-group {
-    position: relative;
-    width: 365px;
-    height: 40px;
-    background-color: #d9d9d9;
-    border-radius: 25px;
-  }
-  
-  .div-wrapper {
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    top: 0;
-    left: 245px;
-    background-color: #f2f2f2;
-    border-radius: 25px;
-  }
-  
-  .text-wrapper-3 {
-    position: absolute;
-    width: 88px;
-    height: 23px;
-    top: 8px;
-    left: 16px;
-    font-family: "Noto Sans Hebrew New-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 18px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .text-wrapper-4 {
-    position: absolute;
-    width: 82px;
-    height: 21px;
-    top: 10px;
-    left: 14px;
-    font-family: "Sans Serif Collection-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 18px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-5 {
+  .copyright {
     position: absolute;
     width: 223px;
     height: 31px;
@@ -690,27 +635,4 @@
     line-height: normal;
   }
   
-  .text-wrapper-6 {
-    position: absolute;
-    width: 76px;
-    height: 20px;
-    top: 286px;
-    left: 897px;
-    font-family: "Noto Sans Hebrew New-Regular", Helvetica;
-    font-weight: 400;
-    color: #f2f2f2;
-    font-size: 18px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-  }
   
-  .line {
-    position: absolute;
-    width: 1200px;
-    height: 1px;
-    top: 272px;
-    left: 120px;
-    object-fit: cover;
-  }

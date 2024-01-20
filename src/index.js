@@ -62,6 +62,11 @@ document.getElementById("button-52").addEventListener("click", () => adoptStatus
 function adoptStatus() {
   document.getElementById("status").innerHTML = "Adopted";
 }
-
-
-
+ 
+//Submit event
+function submit(event) {
+  log.textContent = "Submitted!"
+  event.preventDefault();
+  form.addEventListener("submit", submit);
+}
+const form = document.getElementById("form");
