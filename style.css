@@ -2,46 +2,53 @@
   --standardgray-1: rgba(239, 239, 239, 1);
   --drop-shadow: 20px 20px 30px 0px rgba(0, 0, 0, 0.15);
 }
+
+body, html{
+  width: 100%;
+  height: 200vh;
+  background-color: #dcd5cd ;
+}
+
 .frame {
   background-color: #dcd5cd;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
-  width: 1250px;
+  width: 1300px;
 }
 
 
 .home-content {
-  width: 1250px;
-  height: 760px;
+  width: 1300px;
+  height: 810px;
   background-color: #dcd5cd;
   overflow-x: hidden;
-  width: 1252px;
+  width: 1300px;
   height: 1800px;
   position: relative;
 }
 
 .overlapGroup {
   position: relative;
-  width: 1250px;
+  width: 1300px;
   height: 760px;
 }
 
 #underlay {
   position: absolute;
-  width: 1250px;
-  height: 50px;
-  top: 710px;
+  width: 1300px;
+  height: 300px;
+  top: 700px;
   left: 0;
-  background-color: #ffffff;
+  background-color: #f2f2f2;    
+  box-shadow: 0 4px 6px -6px #222;
 }
 
 /*Phone*/
 @media only screen and (max-width:200px){
   #catdogillus {
     position: relative;
-    width: 1250px;
+    width: 750px;
     height: 760px;
     top: 40px;
     left: -50px;
@@ -49,11 +56,13 @@
 }
 #catdogillus {
   position: absolute;
-  width: 1250px;
-  height: 760px;
-  top: 0;
+  width: 1300px;
+  height: 810px;
+  top: 0px;
   left: 0;
   object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 
@@ -62,15 +71,15 @@
   justify-content: center;
   width: 1250px;
   height: 140px;
-
   background-color: transparent;
 }
 
  .pet {
   position: absolute;
+  margin-top: 20px;
   width: 80px;
   height: 80px;
-  top: 30px;
+  top: 20px;
   left: 90px;
   object-fit: cover;
 }
@@ -89,7 +98,6 @@
   position: absolute;
   width: 100%;
   height: 50px;
-  top: 45px;
   left: 525px;
 }
 
@@ -163,7 +171,6 @@
   height: 30px;
   top: 20px;
   left: 565px;
-  background-image: url(./img/login.png);
   background-size: 30px 30px;
   cursor: pointer;
 }
@@ -172,7 +179,7 @@
   position: absolute;
   width: 60px;
   height: 30px;
-  top: 2px;
+  top: 0px;
   left: 30px;
   font-family: "Inter-Bold", Helvetica;
   font-weight: 700;
@@ -187,7 +194,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  top: 5px;
+  top: 0px;
   left: 5px;
   bottom: 5px;
   object-fit: cover;
@@ -218,51 +225,59 @@
   line-height: normal;
 }
 
+.container {
+  position: absolute;
+  top: 800px;
+  background-color: #f2f2f2;
+  
+}
+
 .overlap {
   position: absolute;
-  width: 1250px;
-  height: 1036px;
-  top: 760px;
+  background-color: #dcd5cd;
+  width: 1300px;
+  height: 4325px;
+  top: 1005px;
   left: 0;
 }
 
-
  .footer {
   position: absolute;
-  width: 1250px;
-  height: 1036px;
+  width: 1300px;
   top: 0px;
   left: 0;
- 
 }
 
  .displayAd {
   position: absolute;
-  width: 1166px;
-  height: 731px;
-  top: 200px;
-  left: 42px;
+  width: 435px;
+  height: 4150px;
+  top: 80px;
+  left: 45px;
 }
 
  .group {
-  position: absolute;
-  width: 564px;
-  height: 700px;
-  top: 16px;
+  position: sticky;
+  width: 420px;
+  height: 585px;
+  top: 15px;
   left: 0;
+  margin: 10px;
 }
 
  .backgroundDIV {
   position: relative;
-  width: 560px;
-  height: 700px;
+  width: 410px;
+  height: 585px;
   background-color: #f2f2f2;
   border-radius: 10px;
+  margin: 5px;
+  
 }
 
- .placeholder {
-  width: 543px;
-  height: 455px;
+#placeholder {
+  width: 392px;
+  height: 315px;
   top: 11px;
   position: absolute;
   left: 8px;
@@ -271,33 +286,37 @@
 
  .detailsDIV {
   position: absolute;
-  width: 485px;
-  height: 139px;
-  top: 481px;
-  left: 19px;
+  width: 392px;
+  height: 100px;
+  top: 340px;
+  left: 8px;
+  text-align: center;
 }
 
  .nameDIV {
   position: absolute;
-  width: 50px;
-  height: 128px;
-  top: 0px;
+  width: 135px;
+  height: 100px;
+  top: 0;
   left: 0;
+  text-align: center;
+  justify-content: center;
 }
 
- .name {
+#name {
   position: absolute;
+  width: 135px;
+  height: 100px;
+  font-weight: bolder;
   font-size: xx-large;
-  width: 50px;
-  height: 40px;
   top: 0;
   left: 0;
 }
 
 
-.description {
+#description {
   position: absolute;
-  width: 485px;
+  width: 392px;
   top: 100px;
   left: 0;
   font-family: "Inter-Regular", Helvetica;
@@ -310,11 +329,12 @@
 }
 
 
-.status {
+#status {
   width: 100px;
-  height: 23px;
-  top: 10px;
-  left: 100px;
+  height: 30px;
+  padding: 5px;
+  top: 5px;
+  left: 135px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: bolder;
   color: #383138;
@@ -326,65 +346,66 @@
 }
 
 .detailWrapper1 {
-  gap: 9.41px;
-  padding: 16.94px;
+  gap: 9px;
+  padding: 7px;
   top: 2px;
-  left: 200px;
+  left: 235px;
   display: flex;
-  width: 55px;
-  height: 55px;
+  width: 150px;
+  height: 25px;
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: #ffffff;
-  border-radius: 7.53px;
-  border: 0.94px solid;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  border: 0.95px solid;
   border-color: #f2f2f2;
 }
 .detailWrapper2 {
-  gap: 9.41px;
-  padding: 16.94px;
-  top: 2px;
-  left: 315px;
+  gap: 9px;
+  padding: 7px;
+  top: 35px;
+  left: 235px;
   display: flex;
-  width: 55px;
-  height: 55px;
+  width: 150px;
+  height: 25px;
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: #ffffff;
-  border-radius: 7.53px;
-  border: 0.94px solid;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  border: 0.95px solid;
   border-color: #f2f2f2;
 }
 .detailWrapper3 {
-  gap: 9.41px;
-  padding: 16.94px;
-  top: 2px;
-  left: 429px;
+  gap: 9px;
+  padding: 7px;
+  top: 70px;
+  left: 235px;
   display: flex;
-  width: 55px;
-  height: 55px;
+  width: 150px;
+  height: 25px;
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: #ffffff;
-  border-radius: 7.53px;
-  border: 0.94px solid;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  border: 0.95px solid;
   border-color: #f2f2f2;
 }
 
  .breedDIV {
-  position: relative;
-  width: 43px;
-  height: 31.06px;
+  position: absolute;
+  padding: 5px;
+  width: 150px;
+  height: 25px;
 
 }
 
-.breedtext {
+#breedtext {
   position: absolute;
-  width: 40px;
-
+  left: 50px;
+  width: 90px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #313831;
@@ -397,11 +418,10 @@
 .breedtitle {
   position: absolute;
   width: 28px;
-  top: 30px;
-  left: 2px;
+  left: 5px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
-  color: #ddd6ce;
+  color: #df7c0a;
   font-size: 12px;
   letter-spacing: 0;
   line-height: 12px;
@@ -409,13 +429,15 @@
 }
 
  .ageDIV {
-  position: relative;
-  width: 44px;
-  height: 33px;
+  position: absolute;
+  padding: 5px;
+  width: 150px;
+  height: 25px;
 }
 
-.agetext {
+#agetext {
   position: absolute;
+  left: 50px;
   width: 40px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
@@ -428,20 +450,21 @@
 
 .agetitle {
   position: absolute;
+  left: 50px;
   width: 28px;
-  top: 30px;
-  left: 2px;
+  left: 5px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
-  color: #ddd6ce;
+  color: #df7c0a;
   font-size: 12px;
   letter-spacing: 0;
   line-height: 12px;
   white-space: nowrap;
 }
 
-.sextext {
+#sextext {
   position: absolute;
+  left: 50px;
   width: 40px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
@@ -453,19 +476,18 @@
 }
 
 .sexDIV {
-  position: relative;
-  width: 32px;
-  height: 27.82px;
+  position: absolute;
+  padding: 5px;
+  width: 150px;
+  height: 25px;
 }
 
 .sextitle {
   position: absolute;
   width: 28px;
-  top: 30px;
-  left: 2px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
-  color: #ddd6ce;
+  color: #df7c0a;
   font-size: 12px;
   letter-spacing: 0;
   line-height: 12px;
@@ -473,42 +495,42 @@
 }
 
 
-.button-52 {
-  position: relative;
+#button-52 {
+  position: absolute;
   width: 200px;
   height: 60px;
-  top: 225px;
-  left: 120px;
+  top: 515px;
+  left: 100px;
   font-size: xx-large;
   font-weight: bolder;
   letter-spacing: 1px;
   padding: 13px 20px 13px;
   outline: 0;
-  color: #ffffff;
+  color: #f2f2f2;
   border: 1px solid black;
   border-radius: 20px;
   cursor: pointer;
-  position: relative;
   background-color: rgba(0, 0, 0, 0);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  z-index: 1;
 }
 
-.button-52:after {
-  content: "";
+#button-52:after {
+  content: "Adopt";
   background-color: #3d3d4f;
   border-radius: 20px;
   width: 100%;
-  z-index: -1;
   position: absolute;
+  padding-left: 50px;
   height: 100%;
-  top: 7px;
-  left: 7px;
+  top: 5px;
+  left: 5px;
   transition: 0.2s;
 }
 
-.button-52:hover:after {
+#button-52:hover:after {
   top: 0px;
   left: 0px;
 }
@@ -526,6 +548,18 @@
   padding-bottom: 50px;
 }
 
+
+.adLists{
+  position: absolute;
+  left: 525px;
+  top: 50px;
+  width: 720px;
+  height: auto;
+  padding: 10px;
+  padding-left: 100px;
+}
+
+
 .shrink{
   -webkit-transform:scale(0.5);
   -moz-transform:scale(0.5);
@@ -535,11 +569,13 @@
 
 
   .box1 {
+    position: absolute;
+    top: 2090px;
     width: 1440px;
     height: 200px;
   }
   .box {
-    background-color: #fff;
+    background-color: #f2f2f2;
     border-radius: 20px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
     padding: 30px;
@@ -550,31 +586,34 @@
 .submit{
   position: absolute;
   left: 200px;
-  bottom: 48px;
+  top: 35px;
+  background-color: #000000;
+  color: #f2f2f2;
 }
   
-  .inputEmail {
-    position: absolute;
-    top: 180px;
-    left: 900px;
+.inputEmail {
+  position: absolute;
+  top: 180px;
+  left: 900px;
+  color: #f2f2f2;
    
-  }
+}
 
-  .inputEmail:focus, .btn1:focus {
-    outline: 0;
-  }
+.inputEmail:focus, .btn1:focus {
+  outline: 0;
+}
   
   .footers-footer {
     position: relative;
-    width: 1446px;
+    width: 1250px;
     height: 335px;
-    top: 1200px;
+    top: 350vh;
     left: 0;
   }
   
   .overlapk {
     position: relative;
-    width: 1440px;
+    width: 1300px;
     height: 335px;
     background-color: #3d3d4f;
   }
@@ -633,4 +672,24 @@
     line-height: normal;
   }
   
-  
+  .line {
+    position: absolute;
+    top: 260px;
+    width: 1200px;
+    height: 0;
+    border: 1px solid #f2f2f2;
+    margin: 3px;
+    display:inline-block;
+  }
+
+#petList div {
+  background-color: #f2f2f2;
+  border: 2px solid;
+  width: 500px;
+  border-radius: 5px;
+  justify-content:center;
+  left: 50%;
+  padding: 10px;
+  padding-left: 100px;
+  margin: 10px;
+}

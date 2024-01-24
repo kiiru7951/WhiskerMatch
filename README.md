@@ -23,7 +23,8 @@ Clone this repo into your local machine and open `index.html` from your browser.
 
 To replace access point, run; 
 
-`curl -d "grant_type=client_credentials&client_id=cPBhQglKS2ggzQxVCLYE2PUnzhhA4l9o13aCwsjeVefJjrq3HA&client_secret=DztzYAfWzys6RR0feCq7cbzw4F7g2xDiU8XAZ8GZ" https://api.petfinder.com/v2/oauth2/token`
+`curl -d "grant_type=client_credentials&client_id={CLIENT-ID}&client_secret={CLIENT-SECRET}" https://api.petfinder.com/v2/oauth2/token
+`
 
 # Author
 Allan Kariuki
