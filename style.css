@@ -570,7 +570,7 @@ body, html{
 
   .box1 {
     position: absolute;
-    top: 2090px;
+    top: 2170px;
     width: 1440px;
     height: 200px;
   }
@@ -692,4 +692,27 @@ body, html{
   padding: 10px;
   padding-left: 100px;
   margin: 10px;
+}
+
+#overlay {
+  position: relative; /* Sit on top of the page content */
+   /* Hidden by default */
+  width: 300px; /* Full width (cover the whole page) */
+  height: 200px; /* Full height (cover the whole page) */
+  top: -80px;
+  left: 50px;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
 }

@@ -1,5 +1,6 @@
 // Importing Environment Variables
 import dotenv from 'dotenv';
+dotenv.config({ path: '/.env' });
 dotenv.config();
 const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
@@ -32,7 +33,7 @@ async function getAccessToken() {
     const data = await response.json();
     accessToken = data.access_token;
     // Set the expiration time of the token (assuming it's provided in the response)
-    tokenExpiration = Date.now() + data.expires_in * 1000;
+    tokenExpiration = Date.now() + data.expires_in + (3600 * 1000);
     
     return accessToken;
   } catch (error) {
@@ -121,3 +122,25 @@ function updateDetails(animal) {
   ageText.textContent = `${animal.age} ${animal.age === "Baby" ? "months" : "years"}`;
   sexText.textContent = animal.gender;
 }
+
+
+  // Wait for the DOM to be ready
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get the form and the paragraph elements
+    var emailForm = document.getElementById('emailForm');
+    var logParagraph = document.getElementById('log');
+
+    // Add an event listener for the form submission
+    emailForm.addEventListener('submit', function (e) {
+      // Prevent the default form submission behavior
+      e.preventDefault();
+
+      // Get the input value
+      var newsletterInput = document.getElementById('newsletter');
+      var inputValue = newsletterInput.value;
+
+      // Display the input value in the paragraph
+      logParagraph.textContent = 'Thank You for your interest.\nWe will reach out via ' + inputValue;
+    });
+  });
+

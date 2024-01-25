@@ -1,0 +1,12 @@
+{   "name": "WhiskerMatch",
+    "main": "index.js",
+    "type": "module",
+    "homepage": "https://github.com/kiiru7951/WhiskerMatch/blob/main/README.md",
+    "author": "Allan Kariuki <kiiru7951>",
+    "license": "UNLICENSED",
+    "dependencies": {       
+        "dotenv": "^8.2.0"
+      }
+  }
+  
+  
