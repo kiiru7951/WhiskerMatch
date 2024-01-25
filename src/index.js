@@ -140,7 +140,7 @@ function updateDetails(animal) {
       var inputValue = newsletterInput.value;
 
       // Display the input value in the paragraph
-      logParagraph.textContent = 'Thank You for your interest.\nWe will reach out via ' + inputValue;
+      logParagraph.textContent = '\nThank You for your interest.\nWe will reach out via ' + inputValue;
     });
   });
 
