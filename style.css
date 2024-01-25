@@ -311,6 +311,9 @@ body, html{
   font-size: xx-large;
   top: 0;
   left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 
@@ -397,7 +400,7 @@ body, html{
  .breedDIV {
   position: absolute;
   padding: 5px;
-  width: 150px;
+  width: 170px;
   height: 25px;
 
 }
@@ -405,14 +408,16 @@ body, html{
 #breedtext {
   position: absolute;
   left: 50px;
-  width: 90px;
+  width: 120px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #313831;
   font-size: 13px;
   letter-spacing: 0;
   line-height: 13px;
+  overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .breedtitle {
