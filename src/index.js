@@ -1,87 +1,44 @@
-// Importing Environment Variables
-import dotenv from 'dotenv';
-dotenv.config({ path: '/.env' });
-dotenv.config();
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
 
 // Update access token
-let accessToken;
-let tokenExpiration;
-
-async function getAccessToken() {
-  const tokenUrl = "https://api.petfinder.com/v2/oauth2/token";
-
-  // Check if a valid token is already cached
-  if (accessToken && Date.now() < tokenExpiration) {
-    return accessToken;
-  }
-
-  try {
-    const response = await fetch(tokenUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`,
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to get access token. Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    accessToken = data.access_token;
-    // Set the expiration time of the token (assuming it's provided in the response)
-    tokenExpiration = Date.now() + data.expires_in + (3600 * 1000);
-    
-    return accessToken;
-  } catch (error) {
-    console.error('Error fetching access token:', error);
-    throw error; // Re-throw the error to notify the caller about the failure
-  }
-}
-
-
+let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJjUEJoUWdsS1MyZ2d6UXhWQ0xZRTJQVW56aGhBNGw5bzEzYUN3c2plVmVmSmpycTNIQSIsImp0aSI6ImY4MmViYWJjOTcyYjA5YzhlNjg4ZmRmYzI5YzFjM2Q3OGU1NzdlYjVjNDkwZTk4ZWQzNWU1ZGEzYzE5NjllNTM4NzU0MjIwZGM4ZmUxYWNlIiwiaWF0IjoxNzA2MjAyMjE5LCJuYmYiOjE3MDYyMDIyMTksImV4cCI6MTcwNjIwNTgxOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.BG9CgrAI1_p-M4rvPPzWNc995UO7kOrW3f8EZUtLdQWxRWH5VWN-p5VIpMJ_K7Eq4mjLjH-9pn26JxZJGuOe8XOQMSZOGpXaBR_SR8oF3fke-AUSJwKCRgC-dvi6Zvm7WZg-LGyztlrlukSrE1-REDhJtJauut63g5QOGHaqBvLLwel0fNFhWDFzHy3RiPcvSumMMtU4lbtL8xIBkGKSoBy00-Jg3-OIEG2CtaT78cBJj-XMM9PQd4Sy-kmR_rOjL0FuCKshDNdUgPqtQMKT_KFzrVg10H1xWQA9AqksK9NGGoDewShFP6kFJ0JA-EJe7F4I5Q0K1TGI9QT4TIfIrg";
 const petForm = document.querySelector("#pet-form");
 const petListContainer = document.getElementById("pet-list-container");
- 
+
 // Function to fetch pet data
-async function fetchPetData() {
-  try {
-    await getAccessToken(); // Get or refresh the access token before making the API request
+function fetchPetData() {
+  const animal = document.querySelector("#animal").value;
+  const apiUrl = `https://api.petfinder.com/v2/animals?type=${animal}&page=1&length=10`;
 
-    const animal = document.querySelector("#animal").value;
-    const apiUrl = `https://api.petfinder.com/v2/animals?type=${animal}&page=1&length=10`;
-
-    const response = await fetch(apiUrl, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
+  fetch(apiUrl, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
       // Clear previous pet list
-    petList.innerHTML = "";
-  
-    // Create and append elements for each pet
-    data.animals.forEach(animal => {
-      const petElement = createPetElement(animal);
-      petList.appendChild(petElement);
+      petList.innerHTML = "";
 
-      // Attach click event listener to update details
-      petElement.addEventListener("click", function () {
-        updateDetails(animal);
+      // Create and append elements for each pet
+      data.animals.forEach(animal => {
+        const petElement = createPetElement(animal);
+        petList.appendChild(petElement);
+
+        // Attach click event listener to update details
+        petElement.addEventListener("click", function () {
+          updateDetails(animal);
+        });
       });
+    })
+    .catch(error => {
+      console.error('Request failed:', error);
     });
-  } catch (error) {
-    console.error('Request failed:', error);
-  }
 }
 
 petForm.addEventListener("submit", function (e) {
@@ -94,7 +51,7 @@ function createPetElement(animal) {
   const petElement = document.createElement("div");
   petElement.classList.add("petListItem");
   petElement.innerHTML = `
-    <img src="${animal.photos[0].medium}" alt="${animal.name}" />
+    <img src="${animal.photos[0].medium}" alt="${animal.name}" loading="lazy" />
     <p>${animal.name}</p>
   `;
   return petElement;
@@ -106,6 +63,8 @@ function updateDetails(animal) {
   const breedText = document.getElementById("breedtext");
   const ageText = document.getElementById("agetext");
   const sexText = document.getElementById("sextext");
+  const description = document.getElementById("description");
+
 
   // Check if animal.photos is defined and has at least one photo
   if (animal.photos && animal.photos.length > 0 && animal.photos[0].medium) {
@@ -121,6 +80,8 @@ function updateDetails(animal) {
   breedText.textContent = animal.breeds.primary;
   ageText.textContent = `${animal.age} ${animal.age === "Baby" ? "months" : "years"}`;
   sexText.textContent = animal.gender;
+  description.textContent = animal.description;
+
 }
 
 
