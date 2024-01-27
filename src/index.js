@@ -44,7 +44,7 @@ async function getAccessToken() {
 
 
 const petForm = document.querySelector("#pet-form");
-const petListContainer = document.getElementById("pet-list-container");
+const petList = document.getElementById("pet-list");
  
 // Function to fetch pet data
 async function fetchPetData() {
