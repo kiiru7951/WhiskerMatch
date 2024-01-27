@@ -32,13 +32,13 @@ async function getAccessToken() {
 
     const data = await response.json();
     accessToken = data.access_token;
-    // Set the expiration time of the token (assuming it's provided in the response)
+    // Set the expiration time of the token (3600 seconds)
     tokenExpiration = Date.now() + data.expires_in + (3600 * 1000);
     
     return accessToken;
   } catch (error) {
     console.error('Error fetching access token:', error);
-    throw error; // Re-throw the error to notify the caller about the failure
+    throw error; // Re-throw the error to notify about the failure
   }
 }
 
@@ -52,7 +52,7 @@ async function fetchPetData() {
     await getAccessToken(); // Get or refresh the access token before making the API request
 
     const animal = document.querySelector("#animal").value;
-    const apiUrl = `https://api.petfinder.com/v2/animals?type=${animal}&page=1&length=10`;
+    const apiUrl = `https://api.petfinder.com/v2/animals?type=${animal}&page=1&limit=10`;
 
     const response = await fetch(apiUrl, {
       method: 'GET',
@@ -85,6 +85,7 @@ async function fetchPetData() {
 }
 
 petForm.addEventListener("submit", function (e) {
+  // Prevent the default form submission behavior
   e.preventDefault();
   fetchPetData();
 });
